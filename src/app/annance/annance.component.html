@@ -1,0 +1,26 @@
+<form (submit)="createAnnance()">
+    <div class="space-y-5 mt-3 p-2">
+        <input type="text" class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800" [(ngModel)]="newAnnance.titre" name="titre" placeholder="Title">
+        <textarea class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800" [(ngModel)]="newAnnance.contenu" name="contenu" rows="6" placeholder="Content"></textarea>
+        <input type="date" class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800" [(ngModel)]="newAnnance.datecreation" name="date_creation" placeholder="Creation Date">
+        <select class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800" [(ngModel)]="newAnnance.utilisateur_id" name="utilisateur_id" placeholder="Sous-utilisateur_id">
+            <option *ngFor="let user of utilisateurs" [value]="user.id">{{ user.id }}</option>
+        </select>
+        
+        <!-- Utilisez un menu déroulant pour choisir la sous-catégorie -->
+        <select class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring-transparent !font-normal !text-xl dark:!text-white dark:placeholder:!text-white dark:!bg-slate-800"  [(ngModel)]="newAnnance.scategorieID" name="sousCategorie_id">
+            <option *ngFor="let sousCategorie of sousCategories" [value]="sousCategorie.id">{{ sousCategorie.nomscategorie  }}</option>
+          </select>
+          
+    </div>
+
+    <div class="flex items-center gap-2 text-sm py-2 px-4 font-medium flex-wrap">
+        <!-- Other form inputs such as category, forum, etc. can be added here -->
+    </div>
+
+    <div class="p-5 flex justify-between items-center">
+        <div>
+            <button type="button" class="button bg-blue-500 text-white py-2 px-12 text-[14px]" (click)="createAnnance()">Create</button>
+        </div>
+    </div>
+</form>
